@@ -8,7 +8,7 @@ import Clipboard from 'expo-clipboard';
 let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*'
 
 
-export default function app() {
+export default function app() { 
   const [password, setPassword] = useState('');
   const [size, setSize] = useState(10)
 
@@ -16,12 +16,14 @@ export default function app() {
   const [contador, setContador] = useState(0);
 
 
-  const contagem = ()=> {
+  const outroAppOn = ()=> {
     setContador(contador + 1);
     if (contador >= 9) {
       setTwoApp(false);
     }
   }
+
+  
 
 
 
@@ -45,7 +47,7 @@ export default function app() {
 
       { twoApp ? 
         <View style={styles.containerT}>
-                <TouchableOpacity onPress={contagem}>
+                <TouchableOpacity onPress={outroAppOn}>
                   <Image 
                     style={styles.logo}
                     source={require('./src/assets/logo.png')} 
@@ -75,9 +77,12 @@ export default function app() {
                     <Text style={styles.password} onLongPress={copyPass} >
                       {password}
                     </Text>
+                    
+      
           </View>
         )}
       </View>: 
+      
       <PageKarol />}
       
 
